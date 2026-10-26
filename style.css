@@ -1,0 +1,1001 @@
+
+/* =========================================================
+   FOODLY — ESTILOS GENERALES
+   ========================================================= */
+
+:root {
+    --fondo: #101010;
+    --fondo-secundario: #181818;
+    --fondo-tarjeta: #202020;
+    --fondo-hover: #292929;
+    --naranja: #ff7900;
+    --naranja-hover: #ff941f;
+    --blanco: #ffffff;
+    --texto: #eeeeee;
+    --texto-secundario: #aaaaaa;
+    --borde: #333333;
+    --error: #ff4d4d;
+    --radio: 14px;
+    --sombra: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--naranja);
+    outline-offset: 3px;
+}
+
+a {
+    color: var(--naranja);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--blanco);
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+    margin-top: 32px;
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+}
+
+p {
+    color: var(--texto-secundario);
+}
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =========================================================
+   PANTALLAS PRINCIPALES — ANCHO COMPLETO
+   ========================================================= */
+
+#pantalla-bienvenida,
+#pantalla-login,
+#pantalla-registro {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+}
+
+.pantalla {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.pantalla-home {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    background: var(--fondo);
+}
+
+
+/* =========================================================
+   BIENVENIDA
+   ========================================================= */
+
+#pantalla-bienvenida {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(255, 121, 0, 0.12),
+            transparent 55%
+        ),
+        var(--fondo);
+}
+
+.bienvenida {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+.bienvenida h1 {
+    margin-bottom: 12px;
+    color: var(--naranja);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.bienvenida > p {
+    margin-bottom: 36px;
+    color: var(--texto);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+.botones-bienvenida {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.boton-principal,
+.boton-secundario,
+.boton-volver {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.boton-principal {
+    background: var(--naranja);
+    color: #111111;
+}
+
+.boton-principal:hover {
+    background: var(--naranja-hover);
+    transform: translateY(-1px);
+}
+
+.boton-secundario {
+    border-color: var(--borde);
+    background: #252525;
+    color: var(--blanco);
+}
+
+.boton-secundario:hover {
+    border-color: var(--naranja);
+    background: var(--fondo-hover);
+}
+
+.boton-secundario.guardado {
+    border-color: var(--naranja);
+    color: var(--naranja);
+}
+
+.boton-volver {
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    color: var(--texto-secundario);
+}
+
+.boton-volver:hover {
+    color: var(--naranja);
+}
+
+.botones-bienvenida button {
+    width: 100%;
+}
+
+
+/* =========================================================
+   LOGIN Y REGISTRO
+   ========================================================= */
+
+.tarjeta-formulario {
+    width: 100%;
+    max-width: 460px;
+    margin: auto;
+    padding: clamp(24px, 5vw, 40px);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    background: var(--fondo-secundario);
+    box-shadow: var(--sombra);
+}
+
+.tarjeta-formulario > h1 {
+    margin-bottom: 8px;
+    color: var(--naranja);
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.tarjeta-formulario > h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.texto-formulario {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.tarjeta-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.campo label {
+    color: var(--texto);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.campo input,
+.buscador input {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background: #111111;
+    color: var(--blanco);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.campo input::placeholder,
+.buscador input::placeholder {
+    color: #777777;
+}
+
+.campo input:focus,
+.buscador input:focus {
+    border-color: var(--naranja);
+}
+
+.tarjeta-formulario form > .boton-principal {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.tarjeta-formulario > .boton-secundario {
+    width: 100%;
+}
+
+.texto-secundario {
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.separador {
+    height: 1px;
+    margin: 24px 0;
+    background: var(--borde);
+}
+
+.tarjeta-formulario > .boton-volver {
+    display: flex;
+    margin: 14px auto 0;
+}
+
+.cf-turnstile {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR Y NAVEGACIÓN
+   ========================================================= */
+
+.barra-superior {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    min-height: 76px;
+    padding: 14px clamp(20px, 5vw, 70px);
+    border-bottom: 1px solid var(--borde);
+    background: rgba(16, 16, 16, 0.96);
+    backdrop-filter: blur(14px);
+}
+
+.logo-home {
+    flex-shrink: 0;
+    color: var(--naranja);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.barra-superior nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.barra-superior nav button {
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--texto);
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.barra-superior nav button:hover {
+    border-color: var(--borde);
+    background: var(--fondo-hover);
+    color: var(--naranja);
+}
+
+
+/* =========================================================
+   CONTENIDO HOME
+   ========================================================= */
+
+.contenido-home {
+    width: 100%;
+    max-width: 1500px;
+    min-height: calc(100vh - 76px);
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 56px) clamp(20px, 5vw, 70px);
+}
+
+.seccion-home {
+    width: 100%;
+    min-width: 0;
+    animation: aparecer 0.25s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.encabezado-home {
+    margin-bottom: 28px;
+}
+
+.encabezado-home h2 {
+    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.encabezado-home p {
+    margin-bottom: 0;
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   BUSCADOR
+   ========================================================= */
+
+.buscador {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin: 26px 0;
+}
+
+.buscador input {
+    flex: 1;
+    min-width: 0;
+}
+
+.buscador button {
+    flex-shrink: 0;
+    min-width: 110px;
+}
+
+
+/* =========================================================
+   UBICACIÓN
+   ========================================================= */
+
+.ubicacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    margin: 24px 0;
+    padding: 20px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    background: var(--fondo-secundario);
+}
+
+.ubicacion strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--blanco);
+}
+
+.ubicacion p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   CATEGORÍAS
+   ========================================================= */
+
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.categorias .categoria {
+    min-height: 42px;
+    padding: 10px 17px;
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+    background: var(--fondo-secundario);
+    color: var(--texto);
+    font-size: 0.92rem;
+    transition: 0.2s ease;
+}
+
+.categorias .categoria:hover,
+.categorias .categoria.categoria-activa {
+    border-color: var(--naranja);
+    background: var(--naranja);
+    color: #111111;
+}
+
+
+/* =========================================================
+   TARJETAS DE RESTAURANTES
+   ========================================================= */
+
+.restaurantes,
+.feed-restaurantes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+}
+
+.restaurante,
+.post-restaurante {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 22px;
+    overflow-wrap: anywhere;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    background: var(--fondo-secundario);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.restaurante:hover,
+.post-restaurante:hover {
+    border-color: rgba(255, 121, 0, 0.65);
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+}
+
+.post-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.avatar-restaurante {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255, 121, 0, 0.35);
+    border-radius: 50%;
+    background: rgba(255, 121, 0, 0.12);
+    color: var(--naranja);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.info-restaurante {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    gap: 3px;
+}
+
+.info-restaurante strong {
+    overflow-wrap: anywhere;
+    color: var(--blanco);
+    font-size: 0.98rem;
+}
+
+.info-restaurante span {
+    color: var(--texto-secundario);
+    font-size: 0.82rem;
+}
+
+.calificacion-post {
+    flex-shrink: 0;
+    color: #ffc04a;
+    font-size: 0.85rem;
+}
+
+.contenido-post {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contenido-post h2 {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+}
+
+.contenido-post p {
+    margin-bottom: 0;
+    font-size: 0.94rem;
+}
+
+.contenido-post .tipo-comida {
+    color: var(--naranja);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.contenido-post button {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.restaurante h4 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.restaurante > p,
+.restaurante > span {
+    color: var(--texto-secundario);
+}
+
+.restaurante > button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   EXPLORAR, GUARDADOS Y PERFIL
+   ========================================================= */
+
+#seccion-explorar > p,
+#seccion-restaurantes > p,
+#seccion-guardados > p {
+    margin-bottom: 24px;
+}
+
+.pagina-simple {
+    padding: 24px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    background: var(--fondo-secundario);
+}
+
+.pagina-simple p {
+    margin-bottom: 18px;
+}
+
+.pagina-simple button {
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   DETALLE DEL RESTAURANTE
+   ========================================================= */
+
+#detalle-restaurante {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#detalle-restaurante > .boton-volver {
+    margin-bottom: 20px;
+}
+
+.detalle-card {
+    width: 100%;
+    padding: clamp(22px, 4vw, 40px);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    background: var(--fondo-secundario);
+    box-shadow: var(--sombra);
+}
+
+.detalle-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 121, 0, 0.3);
+    border-radius: 18px;
+    background: rgba(255, 121, 0, 0.12);
+    font-size: 2.5rem;
+}
+
+.detalle-card > h2 {
+    margin-bottom: 14px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.detalle-card > p {
+    margin-bottom: 24px;
+}
+
+.detalle-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 12px 0;
+    padding: 15px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    background: #151515;
+}
+
+.detalle-dato strong {
+    color: var(--blanco);
+}
+
+.detalle-dato span {
+    color: var(--texto-secundario);
+    overflow-wrap: anywhere;
+}
+
+.detalle-card > button {
+    margin-top: 18px;
+}
+
+.detalle-card > h3 {
+    margin-top: 34px;
+}
+
+.detalle-productos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+#detalle-contacto {
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   FORMULARIOS Y VALIDACIÓN
+   ========================================================= */
+
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--borde);
+}
+
+input:disabled {
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+    .barra-superior {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 24px;
+    }
+
+    .barra-superior nav {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .contenido-home {
+        padding: 30px 24px;
+    }
+
+    .restaurantes,
+    .feed-restaurantes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media (max-width: 640px) {
+    body {
+        font-size: 15px;
+    }
+
+    .pantalla {
+        align-items: center;
+        padding: 20px 14px;
+    }
+
+    .bienvenida {
+        padding: 28px 8px;
+    }
+
+    .bienvenida h1 {
+        letter-spacing: -2px;
+    }
+
+    .tarjeta-formulario {
+        padding: 24px 18px;
+        border-radius: 16px;
+    }
+
+    .barra-superior {
+        position: relative;
+        gap: 14px;
+        padding: 14px 16px;
+    }
+
+    .logo-home {
+        font-size: 1.7rem;
+    }
+
+    .barra-superior nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 6px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .barra-superior nav button {
+        flex-shrink: 0;
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .contenido-home {
+        min-height: calc(100vh - 100px);
+        padding: 24px 15px;
+    }
+
+    .encabezado-home {
+        margin-bottom: 22px;
+    }
+
+    .buscador {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .buscador button {
+        width: 100%;
+    }
+
+    .ubicacion {
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .ubicacion .boton-secundario {
+        flex-shrink: 0;
+        padding: 9px 12px;
+    }
+
+    .categorias {
+        gap: 8px;
+    }
+
+    .categorias .categoria {
+        padding: 9px 13px;
+        font-size: 0.85rem;
+    }
+
+    .restaurantes,
+    .feed-restaurantes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .restaurante,
+    .post-restaurante {
+        padding: 18px;
+    }
+
+    .detalle-card {
+        padding: 20px 16px;
+    }
+
+    .detalle-productos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .detalle-dato {
+        padding: 13px;
+    }
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 360px) {
+    .contenido-home {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .tarjeta-formulario {
+        padding: 20px 14px;
+    }
+
+    .ubicacion {
+        flex-direction: column;
+    }
+
+    .ubicacion .boton-secundario {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   ANCHO GENERAL DE LA APLICACIÓN
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-width: 320px;
+}
+
+#pantalla-bienvenida,
+#pantalla-login,
+#pantalla-registro,
+#pantalla-home {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+/* Contenido del inicio: centrado y adaptable */
+#pantalla-home .contenido-home {
+    width: 100%;
+    max-width: 1500px;
+    margin-right: auto;
+    margin-left: auto;
+}
